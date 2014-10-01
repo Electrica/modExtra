@@ -2,14 +2,15 @@
 
 $plugins = array();
 
-$tmp = array(
-	'modExtra' => array(
-		'file' => 'modextra',
+$tmp = array(/*
+	'modAds' => array(
+		'file' => 'modads',
 		'description' => '',
 		'events' => array(
 			'OnManagerPageInit' => array()
 		)
 	)
+	*/
 );
 
 foreach ($tmp as $k => $v) {
@@ -19,11 +20,11 @@ foreach ($tmp as $k => $v) {
 		'name' => $k,
 		'category' => 0,
 		'description' => @$v['description'],
-		'plugincode' => getSnippetContent($sources['source_core'].'/elements/plugins/plugin.'.$v['file'].'.php'),
+		'plugincode' => getSnippetContent($sources['source_core'] . '/elements/plugins/plugin.' . $v['file'] . '.php'),
 		'static' => BUILD_PLUGIN_STATIC,
 		'source' => 1,
-		'static_file' => 'core/components/'.PKG_NAME_LOWER.'/elements/plugins/plugin.'.$v['file'].'.php'
-		),'',true,true);
+		'static_file' => 'core/components/' . PKG_NAME_LOWER . '/elements/plugins/plugin.' . $v['file'] . '.php'
+	), '', true, true);
 
 	$events = array();
 	if (!empty($v['events'])) {
@@ -36,7 +37,7 @@ foreach ($tmp as $k => $v) {
 					'priority' => 0,
 					'propertyset' => 0,
 				), $v2
-			),'',true,true);
+			), '', true, true);
 			$events[] = $event;
 		}
 		unset($v['events']);

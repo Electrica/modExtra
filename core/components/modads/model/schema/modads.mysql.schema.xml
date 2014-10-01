@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="modads" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" phpdoc-package="modads"
+       version="1.1">
+
+    <object class="modAdsEmployer" table="modads_employer" extends="xPDOSimpleObject">
+
+        <field key="contact_surname" dbtype="varchar" precision="100" phptype="string" default=""/>
+        <field key="contact_name" dbtype="varchar" precision="100" phptype="string" default=""/>
+        <field key="contact_patronymic" dbtype="varchar" precision="200" phptype="string" default=""/>
+        <field key="contact_position" dbtype="varchar" precision="200" phptype="string" default=""/>
+        <field key="contact_phone" dbtype="varchar" precision="200" phptype="string" default=""/>
+        <field key="contact_phone_postfix" dbtype="varchar" precision="100" phptype="string" default=""/>
+        <field key="contact_email" dbtype="varchar" precision="100" phptype="string" default=""/>
+        <field key="org_form" dbtype="varchar" precision="100" phptype="string" default=""/>
+        <field key="org_name" dbtype="varchar" precision="255" phptype="string" default=""/>
+        <field key="id_city" dbtype="int" precision="20" phptype="string" default=""/>
+        <field key="org_description" dbtype="text" phptype="string" default=""/>
+        <field key="org_date_create" dbtype="varchar" precision="100" phptype="string" default=""/>
+        <field key="org_size" dbtype="varchar" precision="100" phptype="string" default=""/>
+        <field key="org_site_url" dbtype="varchar" precision="100" phptype="string" default=""/>
+        <field key="on_main" dbtype="int" precision="1" default="0"/>
+        <field key="date_create" dbtype="varchar" precision="100" phptype="string" default=""/>
+        <field key="date_moderation" dbtype="varchar" precision="100" phptype="string" default=""/>
+        <field key="password" dbtype="varchar" precision="255" phptype="string" default=""/>
+        <field key="id_manager" dbtype="varchar" precision="4" phptype="int" default=""/>
+        <field key="balance" dbtype="varchar" precision="255" phptype="string" default=""/>
+        <field key="ur_org_form" dbtype="varchar" precision="100" phptype="string" default=""/>
+        <field key="ur_org_name" dbtype="varchar" precision="255" phptype="string" default=""/>
+        <field key="ur_org_adress" dbtype="varchar" precision="255" phptype="string" default=""/>
+        <field key="rs" dbtype="varchar" precision="100" phptype="string" default=""/>
+        <field key="bik" dbtype="varchar" precision="100" phptype="string" default=""/>
+        <field key="need_docs" dbtype="int" precision="1" phptype="int" default="0"/>
+        <field key="letter_country" dbtype="varchar" precision="100" phptype="string" default=""/>
+        <field key="letter_city" dbtype="varchar" precision="100" phptype="string" default=""/>
+        <field key="letter_street_type" dbtype="varchar" precision="100" phptype="string" default=""/>
+        <field key="letter_street" dbtype="varchar" precision="255" phptype="string" default=""/>
+        <field key="letter_home" dbtype="varchar" precision="100" phptype="string" default=""/>
+        <field key="letter_corpus" dbtype="varchar" precision="100" phptype="string" default=""/>
+        <field key="letter_build" dbtype="varchar" precision="100" phptype="string" default=""/>
+        <field key="letter_phone" dbtype="varchar" precision="100" phptype="string" default=""/>
+        <field key="letter_phone_postfix" dbtype="varchar" precision="100" phptype="string" default=""/>
+        <field key="letter_finance_contact" dbtype="varchar" precision="255" phptype="string" default=""/>
+        <field key="logo" dbtype="varchar" precision="255" phptype="string" default=""/>
+
+        <index alias="org_name" name="org_name" primary="false" unique="false">
+            <column key="org_name" length="" collation="A"/>
+        </index>
+        <index alias="id_city" name="id_city" primary="false" unique="false">
+            <column key="id_city" length="" collation="A"/>
+        </index>
+
+    </object>
+
+    <object class="modAdsApplicants" table="modads_applicants" extends="xPDOSimpleObject">
+        <field key="name"  dbtype="varchar" precision="100" null="false" phptype="string" default=""/>
+    </object>
+
+</model>

@@ -3,8 +3,8 @@
 $menus = array();
 
 $tmp = array(
-	'modextra' => array(
-		'description' => 'modextra_menu_desc',
+	'modads' => array(
+		'description' => 'modads_menu_desc',
 		'action' => array(
 			'controller' => 'index',
 		),
@@ -22,7 +22,7 @@ foreach ($tmp as $k => $v) {
 			'id' => 0,
 			'parent' => 0,
 			'haslayout' => 1,
-			'lang_topics' => PKG_NAME_LOWER.':default',
+			'lang_topics' => PKG_NAME_LOWER . ':default',
 			'assets' => '',
 		), $v['action']), '', true, true);
 		unset($v['action']);
