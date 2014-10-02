@@ -14,9 +14,9 @@ class modAdsEmployerCreateProcessor extends modObjectCreateProcessor {
 	 * @return bool
 	 */
 	public function beforeSet() {
-		$name = trim($this->getProperty('name'));
+		$name = trim($this->getProperty('modads_employer_contact_name'));
 		if (empty($name)) {
-			$this->modx->error->addField('name', $this->modx->lexicon('modads_item_err_name'));
+			$this->modx->error->addField('modads_employer_contact_name', $this->modx->lexicon('modads_employer_contact_name_err'));
 		}
 		elseif ($this->modx->getCount($this->classKey, array('name' => $name))) {
 			$this->modx->error->addField('name', $this->modx->lexicon('modads_item_err_ae'));

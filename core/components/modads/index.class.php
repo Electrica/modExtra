@@ -18,6 +18,9 @@ abstract class modAdsMainController extends modExtraManagerController {
 		$this->modAds = new modAds($this->modx);
 		$this->addCss($this->modAds->config['cssUrl'] . 'mgr/main.css');
 		$this->addJavascript($this->modAds->config['jsUrl'] . 'mgr/modads.js');
+        $this->addJavascript($this->modAds->config['jsUrl'] . 'mgr/custom/jQuery.js');
+        $this->addJavascript($this->modAds->config['jsUrl'] . 'mgr/custom/ckeditor.js');
+        $this->addJavascript($this->modAds->config['jsUrl'] . 'mgr/custom/custom.js');
 		$this->addHtml('
 		<script type="text/javascript">
 			modAds.config = ' . $this->modx->toJSON($this->modAds->config) . ';

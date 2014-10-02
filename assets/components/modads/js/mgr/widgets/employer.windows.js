@@ -4,8 +4,8 @@ modAds.window.CreateEmployer = function (config) {
 		config.id = 'modads-employer-window-create';
 	}
 	Ext.applyIf(config, {
-		title: _('modads_item_create'),
-		width: 550,
+		title: _('modads_employer_create'),
+		width: 1000,
 		autoHeight: true,
 		url: modAds.config.connector_url,
 		action: 'mgr/employer/create',
@@ -22,26 +22,158 @@ Ext.extend(modAds.window.CreateEmployer, MODx.Window, {
 
 	getFields: function (config) {
 		return [{
-			xtype: 'textfield',
-			fieldLabel: _('modads_item_name'),
-			name: 'name',
-			id: config.id + '-name',
-			anchor: '99%',
-			allowBlank: false,
-		}, {
-			xtype: 'textarea',
-			fieldLabel: _('modads_item_description'),
-			name: 'description',
-			id: config.id + '-description',
-			height: 150,
-			anchor: '99%'
-		}, {
-			xtype: 'xcheckbox',
-			boxLabel: _('modads_item_active'),
-			name: 'active',
-			id: config.id + '-active',
-			checked: true,
-		}];
+            xtype: 'modx-tabs',
+            defaults: {border: false, autoHeight: true},
+            border: true,
+            hideMode: 'offsets',
+            items: [{
+                title: _('modads_employer_contact_details'),
+                layout: 'anchor',
+                items: [{
+                    html: _('modads_employer_contact_details_intro'),
+                    cls: 'panel-desc'
+                },{
+                    layout: 'column',
+                    border: 'false',
+                    anchor: '100%',
+                    items: [{
+                        columnWidth: .5
+                        ,layout: 'form',
+                        defaults: {msTarget: 'under'},
+                        border: 'false',
+                        items: [{
+                            xtype: 'textfield',
+                            fieldLabel: _('modads_employer_contact_name'),
+                            anchor: '99%',
+                            name: 'modads_employer_contact_name'
+                        },{
+                            xtype: 'textfield',
+                            fieldLabel: _('modads_employer_contact_surname'),
+                            anchor: '99%',
+                        },{
+                            xtype: 'textfield',
+                            fieldLabel: _('modads_employer_contact_lastname'),
+                            anchor: '99%',
+                        },{
+                            xtype: 'textfield',
+                            fieldLabel: _('modads_employer_contact_post'),
+                            anchor: '99%',
+                        }]
+                    },{
+                        columnWidth: .5,
+                        layout: 'form',
+                        defaults: {msTarget: 'under'},
+                        border: 'false',
+                        anchor: '99%',
+                        items: [{
+                            xtype: 'checkbox', //asdasdasd
+                            fieldLabel: _('modads_employer_contact_on_main'),
+                            anchor: '99%',
+                        },{
+                            layout: 'column',
+                            border: 'true',
+                            style: 'margin-top: 30px',
+                            anchor: '99%',
+                            items: [{
+                                columnWidth: .3,
+                                layout: 'form',
+                                defaults: {msTarget: 'under'},
+                                border: 'false',
+                                anchor: '99%',
+                                items: [{
+                                    xtype: 'textfield',
+                                    fieldLabel: _('modads_employer_contact_phone_ekstensi'),
+                                    anchor: '99%'
+                                }]
+                            },{
+                                columnWidth: .7,
+                                layout: 'form',
+                                defaults: {msTarget: 'under'},
+                                border: 'false',
+                                anchor: '99%',
+                                items: [{
+                                    xtype: 'textfield',
+                                    fieldLabel: _('modads_employer_contact_phone'),
+                                    anchor: '99%'
+                                }]
+                            }]
+                        },{
+                            xtype: 'textfield',
+                            fieldLabel: _('modads_employer_contact_email'),
+                            anchor: '99%'
+                        },{
+                            xtype: 'textfield',
+                            fieldLabel: _('modads_employer_contact_password'),
+                            anchor: '99%'
+                        }]
+                    }]
+                }]
+            },{
+                title: _('modads_employer_organization_details'),
+                layuot: 'anchor',
+                items: [{
+                    html: _('modads_employer_organization_details_intro'),
+                    cls: 'panel-desc'
+                },{
+                    layout: 'column',
+                    border: 'false',
+                    anchor: '99%',
+                    items: [{
+                        columnWidth: .2,
+                        layout: 'form',
+                        defaults: {msTarget: 'under'},
+                        border: 'false',
+                        anchor: '99%',
+                        items: [{
+                            xtype: 'modads-combo-orgform',
+                            fieldLabel: _('modads_employer_contact_org_form'),
+                            anchor: '99%'
+                        }]
+                    },{
+                        columnWidth: .6,
+                        layout: 'form',
+                        defaults: {msTarget: 'under'},
+                        border: 'false',
+                        anchor: '99%',
+                        items: [{
+                            xtype: 'textfield',
+                            fieldLabel: _('modads_employer_contact_org_name'),
+                            anchor: '99%'
+                        }]
+                    },{
+                        columnWidth: .2,
+                        layout: 'form',
+                        defaults: {msTarget: 'under'},
+                        border: 'false',
+                        anchor: '99%',
+                        items: [{
+                            xtype: 'modads-combo-city',
+                            fieldLabel: _('modads_employer_contact_city'),
+                            anchor: '99%'
+                        }]
+                    }]
+                },{
+                    layout: 'form',
+                    border: false,
+                    style: 'margin-top: 20px',
+                    anchor: '100%',
+                    items: [{
+                        xtype: 'textarea',
+                        fieldLabel: _('modads_employer_contact_description'),
+                        anchor: '100%',
+                        cls: 'ckeditor',
+                        name: 'editor1'
+                    }]
+                }]
+            },{
+                title: _('modads_employer_moderation'),
+                layout: 'anchor',
+                items: [{
+                    html: _('modads_employer_moderation_intro'),
+                    cls: 'panel-desc'
+                }]
+            }]
+        }];
 	}
 
 });

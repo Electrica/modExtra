@@ -194,23 +194,23 @@ Ext.extend(modAds.grid.Employer, MODx.grid.Grid, {
             dataIndex: 'org_form',
             sortable: true
         },{
-			header: _('modads_item_name'),
-			dataIndex: 'name',
+			header: _('modads_mployer_city'),
+			dataIndex: 'city',
 			sortable: true,
 			width: 200,
 		}, {
-			header: _('modads_item_description'),
-			dataIndex: 'description',
+			header: _('modads_employer_block'),
+			dataIndex: 'block',
 			sortable: false,
 			width: 250,
 		}, {
-			header: _('modads_item_active'),
-			dataIndex: 'active',
+			header: _('modads_employer_mmoderation'),
+			dataIndex: 'moderation',
 			renderer: modAds.utils.renderBoolean,
 			sortable: true,
 			width: 100,
 		}, {
-			header: _('modads_grid_actions'),
+			header: _('modads_employer_actions'),
 			dataIndex: 'actions',
 			renderer: modAds.utils.renderActions,
 			sortable: false,
@@ -221,7 +221,7 @@ Ext.extend(modAds.grid.Employer, MODx.grid.Grid, {
 
 	getTopBar: function (config) {
 		return [{
-			text: '<i class="icon icon-plus">&nbsp;' + _('modads_item_create'),
+			text: '<i class="icon icon-plus">&nbsp;' + _('modads_employer_create'),
 			handler: this.createItem,
 			scope: this
 		}, '->', {
@@ -296,3 +296,81 @@ Ext.extend(modAds.grid.Employer, MODx.grid.Grid, {
 	}
 });
 Ext.reg('modads-grid-employer', modAds.grid.Employer);
+
+
+modAds.combo.Orgform = function(config) {
+    config = config || {};
+    Ext.applyIf(config,{
+        store: new Ext.data.ArrayStore({
+            id: 0
+            ,fields: ['unit']
+            ,data: [
+                ['ТОО']
+                ,['ИП']
+                ,['АО']
+                ,['Фонд']
+                ,['Общ.Орг.']
+                ,['Нек.Орг.']
+                ,['ГКП']
+                ,['Другое']
+            ]
+        })
+        ,mode: 'local'
+        ,displayField: 'unit'
+        ,valueField: 'unit'
+    });
+    modAds.combo.Orgform.superclass.constructor.call(this,config);
+};
+Ext.extend(modAds.combo.Orgform,MODx.combo.ComboBox);
+Ext.reg('modads-combo-orgform',modAds.combo.Orgform);
+
+
+modAds.combo.City = function(config) {
+    config = config || {};
+    Ext.applyIf(config,{
+        store: new Ext.data.ArrayStore({
+            id: 0
+            ,fields: ['unit']
+            ,data: [
+                ['Алматы']
+                ,['Астана']
+                ,['Караганда']
+                ,['Костанай']
+                ,['Павлодар']
+                ,['Усть-Каменогороск']
+                ,['Актау']
+                ,['Актобе']
+                ,['Капшагай']
+                ,['Атырау']
+                ,['Ерейментау']
+                ,['Жезказган']
+                ,['Кызылорда']
+                ,['Лисаковск']
+                ,['Петропавловск']
+                ,['Рудный']
+                ,['Семей']
+                ,['Степногорск']
+                ,['Талгар']
+                ,['Талдыкурган']
+                ,['Тараз']
+                ,['Темиртау']
+                ,['Уральс']
+                ,['Шимкент']
+                ,['Экибастуз']
+                ,['Щучинск']
+                ,['Степняк']
+                ,['Каскелен']
+                ,['Аркалык']
+                ,['Есик']
+            ]
+        })
+        ,mode: 'local'
+        ,displayField: 'unit'
+        ,valueField: 'unit'
+    });
+    modAds.combo.City.superclass.constructor.call(this,config);
+};
+Ext.extend(modAds.combo.City,MODx.combo.ComboBox);
+Ext.reg('modads-combo-city',modAds.combo.City);
+
+
